@@ -7,15 +7,21 @@ using System.Web.UI.WebControls;
 
 public partial class Referans : System.Web.UI.Page
 {
-    public List<Referanslar> Rf = new List<Referanslar>();
+        public List<Referanslar> Rf { get; set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            VeriTabani Vt = new VeriTabani();
-            referansrpt.DataSource = Vt.ReferanlarList();
-            referansrpt.DataBind();
+            BindReferansData();
         }
+    }
 
+    private void BindReferansData()
+    {
+        VeriTabani Vt = new VeriTabani();
+        Rf = Vt.ReferanlarList();
+        referansrpt.DataSource = Rf;
+        referansrpt.DataBind();
     }
 }
