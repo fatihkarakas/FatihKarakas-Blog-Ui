@@ -15,10 +15,6 @@ public partial class Referans : System.Web.UI.Page
             VeriTabani Vt = new VeriTabani();
             referansrpt.DataSource = Vt.ReferanlarList();
             referansrpt.DataBind();
-            
-            
-         
-           
         }
 
     }
